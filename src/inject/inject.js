@@ -22,7 +22,7 @@ $(document).ready(function() {
 					'customfield_10001', // Epic Link
 					'customfield_10104', // Severity
 					'customfield_10106', // Customer
-					'customfield_10109', // Client tracking number
+					'customfield_10109', // Client Tracking Number
 					'customfield_12520', // Lawson Pay Code
 					'customfield_12521', // TKC
 					'customfield_12525', // Configurable?
