@@ -4,9 +4,9 @@
 ## How to Jiraway your worries
 
 - Clone this repo or download the .zip
-- Zip it up and put it in a safe place
+- Put it in a safe place (and unzip it if necessary)
 - Open Chrome's Extension page: chrome://extensions/
 - Make sure 'Developer Mode' is checked
 - Click 'Load Unpacked Extension'
-- Choose the location where you saved the .zip file
+- Choose the location where you saved repo
 - Enjoy your new Jira experience
