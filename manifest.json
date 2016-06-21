@@ -1,0 +1,54 @@
+{
+  "name": "Jiraway",
+
+  "version": "1.0.0",
+
+  "manifest_version": 2,
+
+  "description": "One persons's treasure is another persons's trash.",
+
+  "homepage_url": "https://jira.healthsparq.net/",
+
+  "icons": {
+    "128": "icons/icon128.png"
+  },
+
+  "background": {
+    "scripts": [
+      "src/bg/background.js"
+    ],
+
+    "persistent": false
+  },
+
+  "browser_action": {
+    "default_icon": "icons/icon128.png",
+    "default_title": "Jiraway",
+    "default_popup": "src/browser_action/browser_action.html"
+  },
+
+  "permissions": [
+    "tabs",
+    "https://jira.healthsparq.net/*",
+    "storage"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://jira.healthsparq.net/*"
+      ],
+      "js": [
+        "js/jquery/jquery.min.js",
+        "src/bg/background.js",
+        "src/inject/inject.js"
+      ]
+    }
+  ],
+
+  "web_accessible_resources": [
+    "src/inject/inject.css",
+    "src/js/hide-elements.js",
+    "src/js/show-elements.js"
+  ]
+}
