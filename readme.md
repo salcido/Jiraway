@@ -3,7 +3,7 @@
 
 ## How to Jiraway your worries
 
-- Clone this repo
+- Clone this repo or download the .zip
 - Zip it up and put it in a safe place
 - Open Chrome's Extension page: chrome://extensions/
 - Make sure 'Developer Mode' is checked
