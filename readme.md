@@ -8,5 +8,5 @@
 - Open Chrome's Extension page: chrome://extensions/
 - Make sure 'Developer Mode' is checked
 - Click 'Load Unpacked Extension'
-- Choose the location where you saved repo
+- Choose the location where you saved the repo
 - Enjoy your new Jira experience
