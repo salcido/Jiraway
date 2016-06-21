@@ -28,6 +28,7 @@ $(document).ready(function() {
 					'customfield_12521', // TKC
 					'customfield_12525', // Configurable?
 					'customfield_12526', // Client Integration Required?
+					'customfield_12528', // User Acceptance Tests
 					'customfield_12825', // Projected Release
 					'customfield_12826' // Projected Quarter
 				];
