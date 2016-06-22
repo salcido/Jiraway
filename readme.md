@@ -1,6 +1,8 @@
 # Jiraway
 #### The quicker way to create/edit stories/sub-tasks
 
+![Jiraway](https://dl.dropboxusercontent.com/u/22745901/jiraway/jiraway.png?raw=true "Jiraway preview")
+
 ## How to Jiraway your worries
 
 - Clone this repo or download the .zip
