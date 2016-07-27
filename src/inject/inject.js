@@ -38,9 +38,9 @@ $(document).ready(function() {
 			// wait for DOM elements to render
 			if (target) {
 
-				list.forEach(function(completelyUnnecessaryField) {
+				list.forEach(function(fieldName) {
 
-					$('label[for=' + completelyUnnecessaryField + ']').parent().addClass('hide-from-view');
+					$('label[for=' + fieldName + ']').parent().addClass('hide-from-view');
 				});
 
 				clearInterval(int);
