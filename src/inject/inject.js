@@ -82,7 +82,3 @@ $(document).ready(function() {
 		$('.select.cf-select option:contains("Yes")').prop('selected', true);
 	});
 });
-
-
-
-//$('.select.cf-select option:contains("N/A")').prop('selected', true);
