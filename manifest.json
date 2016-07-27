@@ -5,7 +5,7 @@
 
   "manifest_version": 2,
 
-  "description": "One persons's treasure is another persons's trash.",
+  "description": "The quicker way to create/edit stories/sub-tasks. For Healthsparq use only.",
 
   "homepage_url": "https://jira.healthsparq.net/",
 
@@ -42,12 +42,16 @@
         "js/jquery/jquery.min.js",
         "src/bg/background.js",
         "src/inject/inject.js"
+      ],
+      "css": [
+        "src/inject/buttons.css"
       ]
     }
   ],
 
   "web_accessible_resources": [
     "src/inject/inject.css",
+    "src/inject/buttons.css",
     "src/js/hide-elements.js",
     "src/js/show-elements.js"
   ]

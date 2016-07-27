@@ -3,11 +3,3 @@
 .hide-from-view {
   display: none;
 }
-
-.jira-dialog-heading h2 {
-  display: inline-block;
-}
-
-.jiraway-selects {
-  float: right;
-}

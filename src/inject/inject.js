@@ -45,7 +45,7 @@ $(document).ready(function() {
 
 				clearInterval(int);
 			}
-		}, 1000);
+		}, 500);
 	});
 
 	// Append N/A and Yes buttons to header
@@ -61,13 +61,13 @@ $(document).ready(function() {
 
 		int = setInterval(function() {
 
-			if ($('.jira-dialog-heading')) {
+			if ($('.jira-dialog-heading').length > 0) {
 
 				clearInterval(int);
 
 				$('.jira-dialog-heading').append(markup);
 			}
-		}, 300);
+		}, 500);
 	});
 
 	// N/A button listener
