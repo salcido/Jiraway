@@ -1,13 +1,13 @@
 $(document).ready(function() {
 
-	$('body').on('click', '#create_link, #stqc_show, #create-subtask, #edit-issue', function() {
+	$('body').on('click', '#create_link, #stqc_show, #create-subtask, #edit-issue, .issueaction-edit-issue', function() {
 
 		let
 				/*
 				* 'components' is a common element on all task/sub-task forms
 				*	 so I am using it to determine when the form has been rendered in the DOM
 				*/
-				target = $('label[for=components]').parent(),
+				target = $('.jira-dialog-heading').parent(),
 				int,
 				list = [
 					'components', // Components
@@ -35,6 +35,7 @@ $(document).ready(function() {
 
 		int = setInterval(function() {
 
+			// wait for DOM elements to render
 			if (target) {
 
 				list.forEach(function(completelyUnnecessaryField) {
@@ -44,6 +45,44 @@ $(document).ready(function() {
 
 				clearInterval(int);
 			}
+		}, 1000);
+	});
+
+	// Append N/A and Yes buttons to header
+	$('body').on('click', '#action_id_781', function() {
+
+		let int,
+				markup = '<span class="jiraway-selects">' +
+										'Mark select inputs as: &nbsp;' +
+										'<button class="jiraway-na">N/A</button>' +
+										'&nbsp;' +
+										'<button class="jiraway-yes">Yes</button>' +
+									'</span>';
+
+		int = setInterval(function() {
+
+			if ($('.jira-dialog-heading')) {
+
+				clearInterval(int);
+
+				$('.jira-dialog-heading').append(markup);
+			}
 		}, 300);
 	});
+
+	// N/A button listener
+	$('body').on('click', '.jiraway-na', function() {
+
+		$('.select.cf-select option:contains("N/A")').prop('selected', true);
+	});
+
+	// Yes button listener
+	$('body').on('click', '.jiraway-yes', function() {
+
+		$('.select.cf-select option:contains("Yes")').prop('selected', true);
+	});
 });
+
+
+
+//$('.select.cf-select option:contains("N/A")').prop('selected', true);
