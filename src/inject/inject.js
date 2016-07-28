@@ -3,10 +3,6 @@ $(document).ready(function() {
 	$('body').on('click', '#create_link, #stqc_show, #create-subtask, #edit-issue, .issueaction-edit-issue', function() {
 
 		let
-				/*
-				* 'components' is a common element on all task/sub-task forms
-				*	 so I am using it to determine when the form has been rendered in the DOM
-				*/
 				target = $('.jira-dialog-heading').parent(),
 				int,
 				list = [

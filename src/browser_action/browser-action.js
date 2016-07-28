@@ -2,13 +2,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let
       body = document.body,
-      garbage =	document.getElementById('hide-garbage');
+      surplus =	document.getElementById('hide-surplus');
 
   function savePref(event) {
 
-    chrome.storage.sync.set({sanitize: garbage.checked}, function() {
+    chrome.storage.sync.set({sanitize: surplus.checked}, function() {
 
-      if (garbage.checked) {
+      if (surplus.checked) {
 
         chrome.tabs.executeScript(null, {file: 'src/js/hide-elements.js'}, function() {});
 
@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', function () {
   // Check preference when popup is displayed
   chrome.storage.sync.get('sanitize', function(result) {
 
-    garbage.checked = result.sanitize;
+    surplus.checked = result.sanitize;
 
-    if (garbage.checked) {
+    if (surplus.checked) {
 
       body.classList.add('on');
 
@@ -38,5 +38,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  garbage.addEventListener('change', savePref);
+  surplus.addEventListener('change', savePref);
 });
