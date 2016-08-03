@@ -13,7 +13,9 @@ function appendFragment(source) {
   (document.head || document.documentElement).appendChild(fragment.cloneNode(true));
 }
 
-// Check for last saved preference
+// Check for last saved preference, create it if it does not exist,
+// create the DOM element(s) and push them into the `initElems` array
+// to be appended with `appendFragment()`.
 chrome.storage.sync.get('sanitize', function(result) {
 
   let inject;
