@@ -3,7 +3,7 @@ $(document).ready(function() {
 	$('body').on('click', '#create_link, #stqc_show, #create-subtask, #edit-issue, .issueaction-edit-issue', function() {
 
 		let
-				target = $('.jira-dialog-heading').parent(),
+				count = 0,
 				int,
 				list = [
 					'components', // Components
@@ -17,7 +17,7 @@ $(document).ready(function() {
 					'customfield_10000', // Sprint
 					'customfield_10001', // Epic Link
 					'customfield_10104', // Severity
-					'customfield_10106', // Customer
+					//'customfield_10106', // (Customer is now a required field)
 					'customfield_10109', // Client Tracking Number
 					'customfield_10300', // Functional Spec
 					'customfield_12520', // Lawson Pay Code
@@ -32,22 +32,30 @@ $(document).ready(function() {
 		int = setInterval(function() {
 
 			// wait for DOM elements to render
-			if (target) {
+			if ($('.jira-dialog-content .qf-container .form-body .content .active-pane').children().length > 0) {
 
 				list.forEach(function(fieldName) {
 
 					$('label[for=' + fieldName + ']').parent().addClass('hide-from-view');
 				});
 
-				clearInterval(int);
+				// Jira is slow and it sucks so I am literally doing this three times to make sure
+				// all DOM elements are hidden. Come at me, bro!
+				count++;
+
+				if (count > 3) {
+
+					clearInterval(int);
+				}
 			}
-		}, 500);
+		}, 300);
 	});
 
 	// Append N/A and Yes buttons to header
 	$('body').on('click', '#action_id_781', function() {
 
-		let int,
+		let
+				int,
 				markup = '<span class="jiraway-selects">' +
 										'Mark select inputs as: &nbsp;' +
 										'<button class="jiraway-na">N/A</button>' +
@@ -57,13 +65,16 @@ $(document).ready(function() {
 
 		int = setInterval(function() {
 
-			if ($('.jira-dialog-heading').length > 0) {
-
-				clearInterval(int);
+			if ($('.jira-dialog-content').length > 0) {
 
 				$('.jira-dialog-heading').append(markup);
+
+				if ($('.jiraway-selects').length > 0) {
+
+					clearInterval(int);
+				}
 			}
-		}, 500);
+		}, 300);
 	});
 
 	// N/A button listener
