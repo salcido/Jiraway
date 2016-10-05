@@ -7,16 +7,17 @@
 
 body {
   height: 350px;
-  background: url("../../images/sad-rainbow.png");
+  background: url("../../images/sad-rainbow.png") no-repeat;
   background-color: lightGray;
-  background-size: cover;
+  background-size: 430px;
+  transition: all 0.3s;
 }
 
 body.on {
-  height: 350px;
-  background: url("../../images/happy-rainbow.png");
+  background: url("../../images/happy-rainbow.png") no-repeat;
   background-color: #99CCFF;
   background-size: cover;
+  background-size: 430px;
 }
 
 h1 {
@@ -136,4 +137,30 @@ select {
 
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
   right: 0;
+}
+
+.adv {
+  position: absolute;
+  top: 345px;
+}
+
+.config {
+  position: absolute;
+  top: 365px;
+}
+
+.config label {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.config .opt {
+  float: left;
+  width: 50%;
+  margin-bottom: 5px;
+}
+
+.expanded {
+  height: 750px;
+  width: auto;
 }

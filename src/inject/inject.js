@@ -82,7 +82,5 @@ $(document).ready(function() {
 		codeReviewForm();
 	});
 
-	$('a.cancel').on('click', function(){
-		console.log('cancel');
-	});
+	console.log('getting config from INJECT: ///////////////', localStorage.getItem('config'));
 });

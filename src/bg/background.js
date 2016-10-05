@@ -47,7 +47,14 @@ chrome.storage.local.get('sanitize', function(result) {
 
 // Set current team to localStorage.
 // TODO add refresh notice
-chrome.storage.local.get('team', function(result){
+chrome.storage.local.get('team', function(result) {
 
   localStorage.setItem('team', result.team);
+});
+
+chrome.storage.local.get('config', function(result) {
+console.log('RESULT FROM BG', result);
+  if (result.config) {
+    localStorage.setItem('config', JSON.stringify(result.config));
+  }
 });

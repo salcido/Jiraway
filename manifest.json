@@ -50,10 +50,10 @@
   ],
 
   "web_accessible_resources": [
-    "src/inject/inject.css",
     "src/inject/buttons.css",
-    "src/js/hide-elements.js",
+    "src/inject/inject.css",
     "src/inject/inject.js",
+    "src/js/hide-elements.js",
     "src/js/show-elements.js"
   ]
 }
