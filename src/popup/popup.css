@@ -1,0 +1,139 @@
+#mainPopup {
+  height: 200px;
+  width: 400px;
+  padding: 10px;
+  font-family: Helvetica, Ubuntu, Arial, sans-serif;
+}
+
+body {
+  height: 350px;
+  background: url("../../images/sad-rainbow.png");
+  background-color: lightGray;
+  background-size: cover;
+}
+
+body.on {
+  height: 350px;
+  background: url("../../images/happy-rainbow.png");
+  background-color: #99CCFF;
+  background-size: cover;
+}
+
+h1 {
+  margin: 0 0 5px 0;
+  font-size: 4em;
+  color: white;
+  text-align: center;
+}
+
+label {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+input,
+input:focus,
+select {
+  outline: none;
+}
+
+.quote-wrap {
+  padding: 1px 10px;
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 5px;
+}
+
+.quote {
+  font-family: serif;
+  font-size: 1.5em;
+  font-style: italic;
+}
+
+.team-select {
+  width: 150px;
+  margin: 15px auto;
+  position: relative;
+
+  -webkit-user-select: none;
+}
+
+
+/* switch styles */
+
+.onoffswitch {
+  width: 90px;
+  margin: 15px auto;
+  position: relative;
+
+  -webkit-user-select: none;
+}
+
+.onoffswitch-checkbox {
+  display: none;
+}
+
+.onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  border: 2px solid #999999;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.onoffswitch-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  /*transition: margin 0.3s ease-in 0s;*/
+}
+
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+  display: block;
+  float: left;
+  height: 30px;
+  width: 50%;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Trebuchet, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  line-height: 30px;
+}
+
+.onoffswitch-inner:before {
+  content: "ON";
+  padding-left: 10px;
+  background-color: #F51616;
+  color: #FFFFFF;
+}
+
+.onoffswitch-inner:after {
+  content: "OFF";
+  padding-right: 10px;
+  background-color: #EEEEEE;
+  color: #999999;
+  text-align: right;
+}
+
+.onoffswitch-switch {
+  display: block;
+  width: 18px;
+  margin: 6px;
+  position: absolute;
+  top: 0;
+  right: 56px;
+  bottom: 0;
+  background: #FFFFFF;
+  border: 2px solid #999999;
+  border-radius: 20px;
+  /*transition: all 0.3s ease-in 0s;*/
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0;
+}

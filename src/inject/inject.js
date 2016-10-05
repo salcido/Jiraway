@@ -1,9 +1,10 @@
 $(document).ready(function() {
 
-	$('body').on('click', '#create_link, #stqc_show, #create-subtask, #edit-issue, .issueaction-edit-issue', function() {
+	function configureForm() {
 
 		let
 				count = 0,
+				currentTeam,
 				int,
 				list = [
 					'components', // Components
@@ -27,9 +28,12 @@ $(document).ready(function() {
 					'customfield_12528', // User Acceptance Tests
 					'customfield_12825', // Projected Release
 					'customfield_12826' // Projected Quarter
-				];
+				],
+				team = localStorage.getItem('team');
 
 		int = setInterval(function() {
+
+			currentTeam = document.getElementById('customfield_12820');
 
 			// wait for DOM elements to render
 			if ($('.jira-dialog-content .qf-container .form-body .content .active-pane').children().length > 0) {
@@ -38,6 +42,11 @@ $(document).ready(function() {
 
 					$('label[for=' + fieldName + ']').parent().addClass('hide-from-view');
 				});
+
+				if (!currentTeam.value) {
+					// Select Sprint team
+					currentTeam.value = team;
+				}
 
 				// Jira is slow and it sucks so I am literally doing this three times to make sure
 				// all DOM elements are hidden. Come at me, bro!
@@ -48,7 +57,25 @@ $(document).ready(function() {
 					clearInterval(int);
 				}
 			}
+
 		}, 300);
+	}
+
+	// Event listener
+	$('body').on('click', '#create_link, #stqc_show, #create-subtask, #edit-issue, .issueaction-edit-issue', function() {
+		configureForm();
+	});
+
+	$('body').on('click', '#project-suggestions', function() {
+		console.log('flicked..............');
+		$(document).ajaxSuccess(function() {
+			console.log('ajaxSuccess fired');
+			configureForm();
+		});
+		setTimeout(function(){
+			console.log('excecuting.....');
+			//configureForm();
+		}, 3000);
 	});
 
 	// Append N/A and Yes buttons to header

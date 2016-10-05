@@ -16,17 +16,9 @@ function appendFragment(source) {
 // Check for last saved preference, create it if it does not exist,
 // create the DOM element(s) and push them into the `initElems` array
 // to be appended with `appendFragment()`.
-chrome.storage.sync.get('sanitize', function(result) {
+chrome.storage.local.get('sanitize', function(result) {
 
   let inject;
-
-  // create the object if it does not yet exist
-  if (!result) {
-
-    chrome.storage.sync.set({sanitize: true});
-
-    console.log('Preferences created.');
-  }
 
   // Create injectCss element...
   inject = document.createElement('link');
@@ -44,4 +36,11 @@ chrome.storage.sync.get('sanitize', function(result) {
   initElems.push(inject);
 
   appendFragment(initElems);
+});
+
+// Set current team to localStorage.
+// TODO add refresh notice
+chrome.storage.local.get('team', function(result){
+
+  localStorage.setItem('team', result.team);
 });
