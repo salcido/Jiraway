@@ -18,7 +18,8 @@ function appendFragment(source) {
 // to be appended with `appendFragment()`.
 chrome.storage.local.get('sanitize', function(result) {
 
-  let inject;
+  let inject,
+      inject_js;
 
   // Create injectCss element...
   inject = document.createElement('link');
@@ -27,12 +28,18 @@ chrome.storage.local.get('sanitize', function(result) {
   inject.href = chrome.extension.getURL('src/inject/inject.css');
   inject.id = 'injectCss';
 
+  // inject.js
+  inject_js = document.createElement('script');
+  inject_js.type = 'text/javascript';
+  inject_js.src = chrome.extension.getURL('src/inject/inject.js');
+
   // disable if needed
   if (!result.sanitize) {
 
     inject.setAttribute('disabled', true);
   }
 
+  initElems.push(inject_js);
   initElems.push(inject);
 
   appendFragment(initElems);

@@ -1,4 +1,4 @@
 /* ...drops mic */
 .hide-from-view {
-  display: none;
+  display: none !important;
 }

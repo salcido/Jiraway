@@ -53,6 +53,7 @@
     "src/inject/inject.css",
     "src/inject/buttons.css",
     "src/js/hide-elements.js",
+    "src/inject/inject.js",
     "src/js/show-elements.js"
   ]
 }

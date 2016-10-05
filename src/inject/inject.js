@@ -3,9 +3,7 @@ $(document).ready(function() {
 	function configureForm() {
 
 		let
-				count = 0,
 				currentTeam,
-				int,
 				list = [
 					'components', // Components
 					'duedate', // Due Date
@@ -18,7 +16,6 @@ $(document).ready(function() {
 					'customfield_10000', // Sprint
 					'customfield_10001', // Epic Link
 					'customfield_10104', // Severity
-					//'customfield_10106', // (Customer is now a required field)
 					'customfield_10109', // Client Tracking Number
 					'customfield_10300', // Functional Spec
 					'customfield_12520', // Lawson Pay Code
@@ -27,11 +24,11 @@ $(document).ready(function() {
 					'customfield_12526', // Client Integration Required?
 					'customfield_12528', // User Acceptance Tests
 					'customfield_12825', // Projected Release
-					'customfield_12826' // Projected Quarter
+					'customfield_12826'  // Projected Quarter
 				],
 				team = localStorage.getItem('team');
 
-		int = setInterval(function() {
+		$(document).ajaxSuccess(function() {
 
 			currentTeam = document.getElementById('customfield_12820');
 
@@ -43,76 +40,49 @@ $(document).ready(function() {
 					$('label[for=' + fieldName + ']').parent().addClass('hide-from-view');
 				});
 
-				if (!currentTeam.value) {
+				if (currentTeam && !currentTeam.value) {
 					// Select Sprint team
 					currentTeam.value = team;
 				}
-
-				// Jira is slow and it sucks so I am literally doing this three times to make sure
-				// all DOM elements are hidden. Come at me, bro!
-				count++;
-
-				if (count > 3) {
-
-					clearInterval(int);
-				}
 			}
-
-		}, 300);
+		});
 	}
 
-	// Event listener
+	// Hide stuff when Code Review is clicked
+	function codeReviewForm() {
+
+		$(document).ajaxSuccess(function() {
+			$('#customfield_13418-1').parent().parent().addClass('hide-from-view');
+			$('#customfield_13417').parent().addClass('hide-from-view');
+			$('#customfield_12701').parent().addClass('hide-from-view');
+			$('#customfield_12618').parent().addClass('hide-from-view');
+			$('#customfield_12704').parent().addClass('hide-from-view');
+			$('#customfield_12619').parent().addClass('hide-from-view');
+		});
+	}
+
+	// Event listeners
 	$('body').on('click', '#create_link, #stqc_show, #create-subtask, #edit-issue, .issueaction-edit-issue', function() {
+
 		configureForm();
 	});
 
+	// Update fields when project is changed
 	$('body').on('click', '#project-suggestions', function() {
-		console.log('flicked..............');
+
 		$(document).ajaxSuccess(function() {
-			console.log('ajaxSuccess fired');
+
 			configureForm();
 		});
-		setTimeout(function(){
-			console.log('excecuting.....');
-			//configureForm();
-		}, 3000);
 	});
 
-	// Append N/A and Yes buttons to header
-	$('body').on('click', '#action_id_781', function() {
+	// Update fields when Code Review is clicked
+	$('#action_id_821').on('click', function() {
 
-		let
-				int,
-				markup = '<span class="jiraway-selects">' +
-										'Mark select inputs as: &nbsp;' +
-										'<button class="jiraway-na">N/A</button>' +
-										'&nbsp;' +
-										'<button class="jiraway-yes">Yes</button>' +
-									'</span>';
-
-		int = setInterval(function() {
-
-			if ($('.jira-dialog-content').length > 0) {
-
-				$('.jira-dialog-heading').append(markup);
-
-				if ($('.jiraway-selects').length > 0) {
-
-					clearInterval(int);
-				}
-			}
-		}, 300);
+		codeReviewForm();
 	});
 
-	// N/A button listener
-	$('body').on('click', '.jiraway-na', function() {
-
-		$('.select.cf-select option:contains("N/A")').prop('selected', true);
-	});
-
-	// Yes button listener
-	$('body').on('click', '.jiraway-yes', function() {
-
-		$('.select.cf-select option:contains("Yes")').prop('selected', true);
+	$('a.cancel').on('click', function(){
+		console.log('cancel');
 	});
 });
