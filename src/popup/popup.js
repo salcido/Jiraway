@@ -1,111 +1,113 @@
 // big ass object representing all the possible JIRA fields
 // we can hide. Defaults are all set to true.
-let config = {
-					components: {
+let config = [
+					{
 						id: 'components',
 						hide: true,
 						label: 'Components'
 					},
-					duedate: {
+					{
 						id: 'duedate',
 						hide: true,
 						label: 'Due Date'
 					},
-					environment: {
+					{
 						id: 'environment',
 						hide: true,
 						label: 'Environment'
 					},
-					fixVersions: {
+					{
 						id: 'fixVersions',
 						hide: true,
 						label: 'Fix Versions'
 					},
-					priority: {
+					{
 						id: 'priority',
 						hide: true,
 						label: 'Priority'
 					},
-					originalEstimate: {
+					{
 						id: 'timetracking_originalestimate',
 						hide: true,
 						label: 'Original Estimate'
 					},
-					remainingEstimate: {
+					{
 						id: 'timetracking_remainingestimate',
 						hide: true,
 						label: 'Remaining Estimate'
 					},
-					versions: {
+					{
 						id: 'versions',
 						hide: true,
 						label: 'Versions'
 					},
-					sprint: {
+					{
 						id: 'customfield_10000',
 						hide: true,
 						label: 'Sprint'
 					},
-					epicLink: {
+					{
 						id: 'customfield_10001',
 						hide: true,
 						label: 'Epic Link'
 					},
-					severity: {
+					{
 						id: 'customfield_10104',
 						hide: true,
 						label: 'Severity'
 					},
-					clientTrackingNo: {
+					{
 						id: 'customfield_10109',
 						hide: true,
 						label: 'Client Tracking Number'
 					},
-					functionalSpec: {
+					{
 						id: 'customfield_10300',
 						hide: true,
 						label: 'Functional Spec'
 					},
-					lawsonPayCode: {
+					{
 						id: 'customfield_12520',
 						hide: true,
 						label: 'Lawson Pay Code'
 					},
-					tkc: {
+					{
 						id: 'customfield_12521',
 						hide: true,
 						label: 'TKC'
 					},
-					configurable: {
+					{
 						id: 'customfield_12525',
 						hide: true,
 						label: 'Configurable?'
 					},
-					clientIntegration: {
+					{
 						id: 'customfield_12526',
 						hide: true,
 						label: 'Client Ingegration Required?'
 					},
-					userAcceptance: {
+					{
 						id: 'customfield_12528',
 						hide: true,
 						label: 'User Acceptance Tests'
 					},
-					projectedRelease: {
+					{
 						id: 'customfield_12825',
 						hide: true,
 						label: 'Projected Release'
 					},
-					projectedQuarter: {
+					{
 						id: 'customfield_12826',
 						hide: true,
 						label: 'Projected Quarter'
 					}
-				},
+				],
         localConfig;
 
 // Upon first run, config object does not exist so we create it
 if (!localStorage.getItem('config')) {
+
+  localStorage.setItem('config', JSON.stringify(config));
 
   chrome.storage.local.set({config: config}, function() {
     // noop
@@ -116,7 +118,12 @@ if (!localStorage.getItem('config')) {
 localConfig = JSON.parse(localStorage.getItem('config'));
 
 
-// Okay, now we can get down to business
+
+/**
+ * BUSINESS TIME
+ */
+
+// it is the business time
 document.addEventListener('DOMContentLoaded', function() {
 
   let
@@ -197,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Append options to body
-  for (let i in localConfig) {
+  for (let i = 0; i < localConfig.length; i++) {
 
     let checked = localConfig[i].hide ? 'checked' : '',
         markup = '<div class="opt">' +
@@ -224,26 +231,21 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Save preferences on checkbox changes
-  $('input[type=checkbox]').on('click', function(event) {
+  $('input[type=checkbox]').on('click', function() {
 
-    chrome.storage.local.get('config', function(result) {
+    let newConfig = [];
 
-      let newConfig = result.config;
+    $('.config .opt input').each(function() {
 
-      for (let i in result.config) {
-
-        if (result.config[i].id === event.target.value) {
-
-          newConfig[i].hide = event.target.checked;
-
-        } else {
-
-          newConfig[i].hide = result.config[i].hide;
-        }
-      }
-
-      localStorage.setItem('config', JSON.stringify(newConfig));
+      newConfig.push({ id: this.value,
+                       hide: this.checked,
+                       label: this.parentElement.innerHTML.split('>')[1]
+                    });
     });
+
+    chrome.storage.local.set({config: newConfig});
+
+    localStorage.setItem('config', JSON.stringify(newConfig));
   });
 
   // Event listeners

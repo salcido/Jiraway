@@ -4,28 +4,7 @@ $(document).ready(function() {
 
 		let
 				currentTeam,
-				list = [
-					'components', // Components
-					'duedate', // Due Date
-					'environment', // Environment
-					'fixVersions', // Fix versions
-					'priority', // Priority
-					'timetracking_originalestimate', // Original Estimate
-					'timetracking_remainingestimate', // Remaining Estimate
-					'versions', // Versions
-					'customfield_10000', // Sprint
-					'customfield_10001', // Epic Link
-					'customfield_10104', // Severity
-					'customfield_10109', // Client Tracking Number
-					'customfield_10300', // Functional Spec
-					'customfield_12520', // Lawson Pay Code
-					'customfield_12521', // TKC
-					'customfield_12525', // Configurable?
-					'customfield_12526', // Client Integration Required?
-					'customfield_12528', // User Acceptance Tests
-					'customfield_12825', // Projected Release
-					'customfield_12826'  // Projected Quarter
-				],
+				list = JSON.parse(localStorage.getItem('config')),
 				team = localStorage.getItem('team');
 
 		$(document).ajaxSuccess(function() {
@@ -37,7 +16,10 @@ $(document).ready(function() {
 
 				list.forEach(function(fieldName) {
 
-					$('label[for=' + fieldName + ']').parent().addClass('hide-from-view');
+					if (fieldName.hide) {
+
+						$('label[for=' + fieldName.id + ']').parent().addClass('hide-from-view');
+					}
 				});
 
 				if (currentTeam && !currentTeam.value) {
@@ -81,6 +63,4 @@ $(document).ready(function() {
 
 		codeReviewForm();
 	});
-
-	console.log('getting config from INJECT: ///////////////', localStorage.getItem('config'));
 });
