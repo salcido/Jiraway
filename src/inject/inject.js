@@ -30,19 +30,6 @@ $(document).ready(function() {
 		});
 	}
 
-	// Hide stuff when Code Review is clicked
-	function codeReviewForm() {
-
-		$(document).ajaxSuccess(function() {
-			$('#customfield_13418-1').parent().parent().addClass('hide-from-view');
-			$('#customfield_13417').parent().addClass('hide-from-view');
-			$('#customfield_12701').parent().addClass('hide-from-view');
-			$('#customfield_12618').parent().addClass('hide-from-view');
-			$('#customfield_12704').parent().addClass('hide-from-view');
-			$('#customfield_12619').parent().addClass('hide-from-view');
-		});
-	}
-
 	// Event listeners
 	$('body').on('click', '#create_link, #stqc_show, #create-subtask, #edit-issue, .issueaction-edit-issue', function() {
 
@@ -56,11 +43,5 @@ $(document).ready(function() {
 
 			configureForm();
 		});
-	});
-
-	// Update fields when Code Review is clicked
-	$('#action_id_821').on('click', function() {
-
-		codeReviewForm();
 	});
 });

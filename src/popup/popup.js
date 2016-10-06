@@ -1,11 +1,26 @@
 // big ass object representing all the possible JIRA fields
 // we can hide. Defaults are all set to true.
 let config = [
+          {
+            id: 'customfield_12526',
+            hide: true,
+            label: 'Client Ingegration Required?'
+          },
+          {
+            id: 'customfield_10109',
+            hide: true,
+            label: 'Client Tracking Number'
+          },
 					{
 						id: 'components',
 						hide: true,
 						label: 'Components'
 					},
+          {
+            id: 'customfield_12525',
+            hide: true,
+            label: 'Configurable?'
+          },
 					{
 						id: 'duedate',
 						hide: true,
@@ -16,91 +31,76 @@ let config = [
 						hide: true,
 						label: 'Environment'
 					},
+          {
+            id: 'customfield_10001',
+            hide: true,
+            label: 'Epic Link'
+          },
 					{
 						id: 'fixVersions',
 						hide: true,
 						label: 'Fix Versions'
 					},
-					{
-						id: 'priority',
-						hide: true,
-						label: 'Priority'
-					},
+          {
+            id: 'customfield_10300',
+            hide: true,
+            label: 'Functional Spec'
+          },
+          {
+            id: 'customfield_12520',
+            hide: true,
+            label: 'Lawson Pay Code'
+          },
 					{
 						id: 'timetracking_originalestimate',
 						hide: true,
 						label: 'Original Estimate'
 					},
-					{
-						id: 'timetracking_remainingestimate',
-						hide: true,
-						label: 'Remaining Estimate'
-					},
-					{
-						id: 'versions',
-						hide: true,
-						label: 'Versions'
-					},
-					{
-						id: 'customfield_10000',
-						hide: true,
-						label: 'Sprint'
-					},
-					{
-						id: 'customfield_10001',
-						hide: true,
-						label: 'Epic Link'
-					},
-					{
-						id: 'customfield_10104',
-						hide: true,
-						label: 'Severity'
-					},
-					{
-						id: 'customfield_10109',
-						hide: true,
-						label: 'Client Tracking Number'
-					},
-					{
-						id: 'customfield_10300',
-						hide: true,
-						label: 'Functional Spec'
-					},
-					{
-						id: 'customfield_12520',
-						hide: true,
-						label: 'Lawson Pay Code'
-					},
-					{
-						id: 'customfield_12521',
-						hide: true,
-						label: 'TKC'
-					},
-					{
-						id: 'customfield_12525',
-						hide: true,
-						label: 'Configurable?'
-					},
-					{
-						id: 'customfield_12526',
-						hide: true,
-						label: 'Client Ingegration Required?'
-					},
-					{
-						id: 'customfield_12528',
-						hide: true,
-						label: 'User Acceptance Tests'
-					},
+          {
+            id: 'priority',
+            hide: true,
+            label: 'Priority'
+          },
+          {
+            id: 'customfield_12826',
+            hide: true,
+            label: 'Projected Quarter'
+          },
 					{
 						id: 'customfield_12825',
 						hide: true,
 						label: 'Projected Release'
 					},
-					{
-						id: 'customfield_12826',
-						hide: true,
-						label: 'Projected Quarter'
-					}
+          {
+            id: 'timetracking_remainingestimate',
+            hide: true,
+            label: 'Remaining Estimate'
+          },
+          {
+            id: 'customfield_10104',
+            hide: true,
+            label: 'Severity'
+          },
+          {
+            id: 'customfield_10000',
+            hide: true,
+            label: 'Sprint'
+          },
+          {
+            id: 'customfield_12521',
+            hide: true,
+            label: 'TKC'
+          },
+          {
+            id: 'customfield_12528',
+            hide: true,
+            label: 'User Acceptance Tests'
+          },
+          {
+            id: 'versions',
+            hide: true,
+            label: 'Versions'
+          }
 				],
         localConfig;
 
@@ -250,5 +250,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Event listeners
   surplus.addEventListener('change', saveChecked);
+
   team.addEventListener('change', saveTeam);
 });

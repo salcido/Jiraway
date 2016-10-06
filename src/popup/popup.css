@@ -27,6 +27,10 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  color: white;
+}
+
 label {
   font-size: 1.5em;
   font-weight: bold;
@@ -139,9 +143,12 @@ select {
   right: 0;
 }
 
+/* options link */
 .adv {
   position: absolute;
   top: 345px;
+  color: white;
+  text-decoration: none;
 }
 
 .config {
@@ -161,6 +168,6 @@ select {
 }
 
 .expanded {
-  height: 750px;
+  height: 650px;
   width: auto;
 }

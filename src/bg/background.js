@@ -40,6 +40,7 @@ chrome.storage.local.get('sanitize', function(result) {
   }
 
   initElems.push(inject_js);
+
   initElems.push(inject);
 
   appendFragment(initElems);
@@ -53,8 +54,9 @@ chrome.storage.local.get('team', function(result) {
 });
 
 chrome.storage.local.get('config', function(result) {
-console.log('RESULT FROM BG', result);
+
   if (result.config) {
+
     localStorage.setItem('config', JSON.stringify(result.config));
   }
 });
