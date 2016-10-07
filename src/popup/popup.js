@@ -1,5 +1,5 @@
 // big ass object representing all the possible JIRA fields
-// we can hide. Defaults are all set to true.
+// we can hide.
 let config = [
           {
             id: 'customfield_12527',
