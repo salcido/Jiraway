@@ -2,103 +2,168 @@
 // we can hide. Defaults are all set to true.
 let config = [
           {
+            id: 'customfield_12527',
+            hide: false,
+            label: 'Acceptance Criteria'
+          },
+          {
+            id: 'customfield_10706',
+            hide: false,
+            label: 'Account Manager'
+          },
+          {
+            id: 'assignee',
+            hide: false,
+            label: 'Assignee'
+          },
+          {
+            id: 'customfield_12524',
+            hide: false,
+            label: 'Business Benefit'
+          },
+          {
             id: 'customfield_12526',
-            hide: true,
+            hide: false,
             label: 'Client Ingegration Required?'
           },
           {
             id: 'customfield_10109',
-            hide: true,
-            label: 'Client Tracking Number'
+            hide: false,
+            label: 'Client Tracking #'
+          },
+          {
+            id: 'customfield_11200',
+            hide: false,
+            label: 'Code Reviewer'
+          },
+          {
+            id: 'comment',
+            hide: false,
+            label: 'Comment'
           },
 					{
 						id: 'components',
-						hide: true,
+						hide: false,
 						label: 'Components'
 					},
           {
             id: 'customfield_12525',
-            hide: true,
+            hide: false,
             label: 'Configurable?'
+          },
+          {
+            id: 'customfield_10106',
+            hide: false,
+            label: 'Customer'
+          },
+          {
+            id: 'description',
+            hide: false,
+            label: 'Description'
           },
 					{
 						id: 'duedate',
-						hide: true,
+						hide: false,
 						label: 'Due Date'
 					},
 					{
 						id: 'environment',
-						hide: true,
+						hide: false,
 						label: 'Environment'
 					},
           {
             id: 'customfield_10001',
-            hide: true,
+            hide: false,
             label: 'Epic Link'
           },
 					{
 						id: 'fixVersions',
-						hide: true,
+						hide: false,
 						label: 'Fix Versions'
 					},
           {
             id: 'customfield_10300',
-            hide: true,
+            hide: false,
             label: 'Functional Spec'
           },
           {
+            id: 'issuetype',
+            hide: false,
+            label: 'Issue Type'
+          },
+          {
+            id: 'labels',
+            hide: false,
+            label: 'Labels'
+          },
+          {
             id: 'customfield_12520',
-            hide: true,
+            hide: false,
             label: 'Lawson Pay Code'
           },
 					{
 						id: 'timetracking_originalestimate',
-						hide: true,
+						hide: false,
 						label: 'Original Estimate'
 					},
           {
             id: 'priority',
-            hide: true,
+            hide: false,
             label: 'Priority'
           },
           {
             id: 'customfield_12826',
-            hide: true,
+            hide: false,
             label: 'Projected Quarter'
           },
 					{
 						id: 'customfield_12825',
-						hide: true,
+						hide: false,
 						label: 'Projected Release'
 					},
           {
             id: 'timetracking_remainingestimate',
-            hide: true,
+            hide: false,
             label: 'Remaining Estimate'
           },
           {
             id: 'customfield_10104',
-            hide: true,
+            hide: false,
             label: 'Severity'
           },
           {
             id: 'customfield_10000',
-            hide: true,
+            hide: false,
             label: 'Sprint'
           },
           {
+            id: 'customfield_10008',
+            hide: false,
+            label: 'Story Points'
+          },
+          {
+            id: 'summary',
+            hide: false,
+            label: 'Summary'
+          },
+          {
             id: 'customfield_12521',
-            hide: true,
+            hide: false,
             label: 'TKC'
           },
           {
             id: 'customfield_12528',
-            hide: true,
+            hide: false,
             label: 'User Acceptance Tests'
           },
           {
+            id: 'customfield_12523',
+            hide: false,
+            label: 'User Story'
+          },
+          {
             id: 'versions',
-            hide: true,
+            hide: false,
             label: 'Versions'
           }
 				],

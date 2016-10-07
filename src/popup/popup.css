@@ -152,6 +152,7 @@ select {
 }
 
 .config {
+  margin-bottom: 10px;
   position: absolute;
   top: 365px;
 }
@@ -168,6 +169,13 @@ select {
 }
 
 .expanded {
-  height: 650px;
+  height: 660px;
   width: auto;
+}
+
+.refresh {
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  color: lightseagreen;
 }
