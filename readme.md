@@ -6,7 +6,7 @@
 
 ## How to Jiraway your worries
 
-- Clone this repo or download the .zip
+- Clone this repo or [download the .zip](https://github.com/salcido/Jiraway/archive/master.zip)
 - Put it in a safe place (and unzip it if necessary)
 - Open Chrome's Extension page: chrome://extensions/
 - Make sure 'Developer Mode' is checked
