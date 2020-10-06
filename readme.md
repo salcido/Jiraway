@@ -8,7 +8,7 @@
 
 - Clone this repo or download the .zip
 - Put it in a safe place (and unzip it if necessary)
-- Open Chrome's Extension page: chrome://extensions/
+- Open [Chrome's Extension page](chrome://extensions/)
 - Make sure 'Developer Mode' is checked
 - Click 'Load Unpacked Extension'
 - Choose the location where you saved the repo
